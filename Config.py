@@ -6,17 +6,17 @@ id_pattern = re.compile(r'^.\d+$')
 
 # Bot information
 SESSION = environ.get('SESSION', 'LuciferMoringstar_Robot')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ['API_ID', '27326387']
+API_HASH = environ['API_HASH', 'bde5a81c08ee3341ee953b714d297534']
+BOT_TOKEN = environ['BOT_TOKEN', '8175409125:AAEruwH3WDzxZmHJnTFnSHAXUXhNoH3bmHg']
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 
 BROADCAST_CHANNEL = int(os.environ.get("BROADCAST_CHANNEL", ""))
-ADMIN_ID = set(int(x) for x in os.environ.get("ADMIN_ID", "").split())
-DB_URL = os.environ.get("DATABASE_1", "")
+ADMIN_ID = set(int(x) for x in os.environ.get("ADMIN_ID", "6639622980").split())
+DB_URL = os.environ.get("DATABASE_1", "mongodb+srv://SM:SM@cluster0.xvvtb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST", True))
 
 # Admins, Channels & Users
@@ -24,12 +24,12 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ['CHANNELS'].split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-auth_channel = environ.get('FORCES_SUB')
+auth_channel = environ.get('-1002063643170')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else auth_channel
 AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 TUTORIAL = "https://youtu.be/5hnYOKBzyi8"
 # MongoDB information
-DATABASE_URI = environ['DATABASE_2']
+DATABASE_URI = environ['DATABASE_URI']
 DATABASE_NAME = environ['BOT_NAME']
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
